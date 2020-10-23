@@ -21,7 +21,7 @@ class UserAdmin implements UserInterface
     /**
      * @ORM\Column(type="string", length=180, unique=true)
      */
-    private $idAdmin;
+    private $username;
 
     /**
      * @ORM\Column(type="json")
@@ -39,18 +39,6 @@ class UserAdmin implements UserInterface
         return $this->id;
     }
 
-    public function getIdAdmin(): ?string
-    {
-        return $this->idAdmin;
-    }
-
-    public function setIdAdmin(string $idAdmin): self
-    {
-        $this->idAdmin = $idAdmin;
-
-        return $this;
-    }
-
     /**
      * A visual identifier that represents this user.
      *
@@ -58,7 +46,14 @@ class UserAdmin implements UserInterface
      */
     public function getUsername(): string
     {
-        return (string) $this->idAdmin;
+        return (string) $this->username;
+    }
+
+    public function setUsername(string $username): self
+    {
+        $this->username = $username;
+
+        return $this;
     }
 
     /**

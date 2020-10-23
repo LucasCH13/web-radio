@@ -20,11 +20,24 @@
               </ul>
             </div>
         </nav>
+        <div id="adminContent">
+
+            {% block adminBody %}{% endblock %}
+
+        </div>
+
+        <div id="loginContent">
+
+            {% block loginBody %}{% endblock %}
+
+        </div> 
+
         <div id="content">
             
             {% block content %}{% endblock %}
 
         </div>
+
         {% block javascripts %}{% endblock %}
     </body>
 </html>
