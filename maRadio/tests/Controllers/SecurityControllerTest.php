@@ -2,20 +2,45 @@
 
 namespace App\Tests\Controller;
 use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
+use App\Entity\UserAdmin;
+use App\Repository\UserAdminRepository;
 
 
+class SecurityControllerTest extends WebTestCase {
+    
+    const LOGIN_ERROR='Lucas';
+    const PASS_ERROR='octane';
 
-class SecurityControllerTest extends WebTestCase{
-    /*
-    public function LoginTest() {
+    const LOGIN='adminRadio';
+    const PASS='administrateurRAdio';
+    const PASS_CRYPT='$argon2id$v=19$m=65536,t=4,p=1$OVllOHJVa1FSdEdRczVKcQ$dp903WRg+rphnYw6HXVAo5ygeDHe+MkFgvXqslwhbZo';
+
+    const ID_SUBMIT='_submit';
+
+    public function testSecurity() {
         $this->client=static::createClient();
         $this->crawler=$this->client->request('GET', '/login');
 
+        //Savoir si il y a des utilisateurs dans la base
+
             $em=$this->client->getContainer()->get('doctrine')->getManager();
-        $users=$em->getRepository("UserAdminRepository:UserAdmin")->findAll();
+        $users=$em->getRepository("App\Entity\UserAdmin")->findAll();
         $this->assertGreaterThan(0, count($users));
+
+        //Utilisateur valide ou non
+        $valid_user=$em->getRepository("App\Entity\UserAdmin")->findBy(
+            array('username' => self::LOGIN,
+                'password' => self::PASS_CRYPT));
+        $this->assertGreaterThan(0, count($valid_user));
+    
+        //Utilisateur non valide uniquement
+        $invalid_user=$em->getRepository("App\Entity\UserAdmin")->findBy(
+            array('username' => self::LOGIN_ERROR,
+                'password' => self::PASS_ERROR));
+        $this->assertEquals(0, count($invalid_user));
+
     }
-    */
+
     public function testUserRedirect() {
         //on crée un client
         $client = static::createClient(
@@ -31,14 +56,11 @@ class SecurityControllerTest extends WebTestCase{
             $client->followRedirect();
         }
         $this->assertTrue($client->getResponse()->isSuccessful());
-    
+        
     }
-        /*
-        // on remplie le formulaire
-        $form = $crawler->selectButton('_submit')->form(array(
-            'username'  => 'adminRadio',
-            'password'  => 'administrateurRadio'
-        ));
-        $client->submit($form);
-        */
+    /*
+    public function testLoginForm() {
+        
+    }
+      */  
 }   
