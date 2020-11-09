@@ -15,4 +15,11 @@ class AdminController extends AbstractController {
         return $this->render('admin.html.twig', [
         ]);
     }
+    /**
+     * @Route("/administration", name="button_test")
+     */
+    public function buttonCall() {
+       
+
+    }
 }
