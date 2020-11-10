@@ -6,6 +6,7 @@
 {% block adminBody %}
     <h1>Administration</h1>
     <button class="btn btn-primary" href="{{ path('button_test') }}">Ajouter</button>
+    <input type="button" class="btn btn-primary" value="Ajouter"  onclick=location.href = {{ path('button_test') }};/>
     <div class="contentFromApi">
        <div>
       
