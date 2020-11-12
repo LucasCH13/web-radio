@@ -5,12 +5,20 @@
 
 {% block adminBody %}
     <h1>Administration</h1>
-    <button class="btn btn-primary" href="{{ path('button_test') }}">Ajouter</button>
-    <input type="button" class="btn btn-primary" value="Ajouter"  onclick=location.href = {{ path('button_test') }};/>
-    <div class="contentFromApi">
-       <div>
-      
-       </div>
+    
+    <div class="api-content">
+       <div class="genre-group"> 
+            <div class="form-group">
+                <label for="select_genre">Sélectionnez un genre </label>
+                <select class="form-control">
+                <option>Rock</option>
+                </select>   
+                
+            </div>
+            <button class="btn btn-primary" id="ajouter-genre">Ajouter</button>
+      </div>
+
     </div>
-   
+   <script src="{{ asset('js/shoutcast_api.js' )}}"> </script>
 {% endblock %}
+
