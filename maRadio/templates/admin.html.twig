@@ -10,8 +10,12 @@
        <div class="genre-group"> 
             <div class="form-group">
                 <label for="select_genre">Sélectionnez un genre </label>
-                <select class="form-control">
+                <select class="form-control" id="form-control">
                 <option>Rock</option>
+                <option>Rap</option>
+                <option>Classic</option>
+                <option>Blue</option>
+                <option>Electronic</option>
                 </select>   
                 
             </div>
@@ -19,6 +23,7 @@
       </div>
 
     </div>
-   <script src="{{ asset('js/shoutcast_api.js' )}}"> </script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> 
+    <script src="{{ asset('js/shoutcast_api.js' )}}"> </script>
 {% endblock %}
 
