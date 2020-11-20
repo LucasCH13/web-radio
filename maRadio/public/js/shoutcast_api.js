@@ -10,16 +10,21 @@ $(document).ready(function(){
         selectedValue = $("#form-control").val();
         url_genre = "http://api.shoutcast.com/legacy/genresearch?k=" + api_key +"&genre=" + selectedValue + "&limit=2,1";
         url_random = "http://api.shoutcast.com/station/randomstations?k=" + api_key + "&f=json&mt=audio/mpeg&br=128&genre=" + selectedValue + "&limit=1";
-        getRadioByGenre();  
-       // console.log(url_genre);
-        console.log(url_random);
-        
-
-       
+        //getRadioByGenre();  
+        //console.log(url_random);
+       $.ajax({
+         type: "POST",
+         url: "http://127.0.0.1:8000/administration",
+         data: {'url_station_random' :  url_random },
+         success: function () {
+           console.log(url_random); 
+         }
+       }); 
     });
   });
 
 function getRadioByGenre() {  
+  /*
   $.ajax({
     type: "GET",
     url: url_random,
@@ -43,8 +48,9 @@ function getRadioByGenre() {
       console.log("Une erreur est survenue");
 
    }
-  });
 
+  });
+*/
 /*
 
     $.ajax({

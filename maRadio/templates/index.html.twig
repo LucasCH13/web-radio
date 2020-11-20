@@ -8,6 +8,12 @@
     <p> Vous pouvez accéder directement aux playlists ajoutées par l'administrateur</p>
     
     <div id="api-content-result">
+
+    {% if api_content is defined %}
+    <div>
+        {{api_content}}
+    </div>
+    {% endif %}
       
     </div>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> 
