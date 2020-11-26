@@ -9,14 +9,18 @@
     
     <div id="api-content-result">
 
-    {% if api_content is defined %}
-    <div>
-        {{api_content}}
-    </div>
-    {% endif %}
-      
+       
+             {% if data and tuneIn is defined and data is not null %}
+              
+             <p>
+                 {{dump(data)}}
+               
+             </p>
+                
+                
+             {% endif %}
+            
     </div>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> 
-    <script src="https://github.com/padolsey-archive/jquery.fn/tree/master/cross-domain-ajax "></script>
     <script src="{{ asset('js/shoutcast_api.js' )}}"> </script>
 {% endblock %}
