@@ -8,18 +8,20 @@
     <p> Vous pouvez accéder directement aux playlists ajoutées par l'administrateur</p>
     
     <div id="api-content-result">
-
-       
-             {% if data and tuneIn is defined and data is not null %}
-              
-             <p>
-                 {{dump(data)}}
-               
-             </p>
-                
-                
-             {% endif %}
+        
+          {  {{ dump(content) }}  
+         
+            {% for response in content %}
+                {% for data in response.data %}
+                    {% for stationlist in response.data.stationlist|slice(0, 1) %}
+                    <img src="{{response.data.stationlist['station'].logo}}">
+                       
+                    {% endfor %}
+                {% endfor %}
+            {% endfor %} 
             
+          
+        
     </div>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> 
     <script src="{{ asset('js/shoutcast_api.js' )}}"> </script>

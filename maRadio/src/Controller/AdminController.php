@@ -29,7 +29,6 @@ class AdminController extends AbstractController {
        //j99MYuH7ghxGwq5p
     //http://api.shoutcast.com/legacy/genresearch?k=j99MYuH7ghxGwq5p&genre=classic&limit=5,4
        
-        //$response ='';
         $urlStation = '';
         $url_station_random = isset($_POST["url_station_random"]);
         $selectedGenre = isset($_POST["selectedGenre"]);
@@ -41,20 +40,18 @@ class AdminController extends AbstractController {
                             'genre' => $selectedGenre,
                         ],
                        
-                    ]);  
-                        
+                    ]);
                             //$content = $response->getContent();
-                            
                             $content = $response->toArray();//
-                            
+                  
                   return new Response(
                             $this->renderView('index.html.twig',  [
-                                'data' => $content,
-                                'tuneIn' => $tunein_url,
-                            
+                                'content' => $content,
                             ]));
-            
-
+                          
+                         
+             
+                  
     }
     
 }
