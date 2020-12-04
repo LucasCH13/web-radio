@@ -9,17 +9,21 @@
     
     <div id="api-content-result">
         
-          {  {{ dump(content) }}  
+           
          
-            {% for response in content %}
+           {# {% for response in content %}
                 {% for data in response.data %}
                     {% for stationlist in response.data.stationlist|slice(0, 1) %}
-                    <img src="{{response.data.stationlist['station'].logo}}">
-                       
+                     
+                       <img src="{{response.data.stationlist['station'].logo}}">
+                       <audio controls preload="auto" src="http://listen.shoutcast.com/mgcks-radio" type ="audio/mpeg"></audio>
                     {% endfor %}
                 {% endfor %}
             {% endfor %} 
-            
+            #}
+            {{ dump(data) }}
+            {{ dump(base) }}
+            {{ dump(url_audio) }}
           
         
     </div>
