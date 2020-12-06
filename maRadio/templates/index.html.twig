@@ -8,32 +8,15 @@
     <p> Vous pouvez accéder directement aux playlists ajoutées par l'administrateur</p>
     
     <div id="api-content-result">
-        
-           
-         
-           {# {% for response in content %}
-                {% for data in response.data %}
-                    {% for stationlist in response.data.stationlist|slice(0, 1) %}
-                     
-                       <img src="{{response.data.stationlist['station'].logo}}">
-                       <audio controls preload="auto" src="http://listen.shoutcast.com/mgcks-radio" type ="audio/mpeg"></audio>
-                    {% endfor %}
-                {% endfor %}
-            {% endfor %} 
-            #}
 
-             
-            <div id="radio1">
-                <img src="{{logo}}"></img>
-              <audio controls preload="auto">
+            <div id="radioAlea">
+                <h1>{{name}}</h1>
+                <img id="radioLogoAlea"src="{{logo}}"></img>
+              <audio id="radioAudioAlea" controls preload="auto">
                  <source src="{{url_audio}}">
               </audio>
             </div>
 
-
-         
-          
-        
     </div>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> 
     <script src="{{ asset('js/shoutcast_api.js' )}}"> </script>
