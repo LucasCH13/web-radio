@@ -21,9 +21,17 @@
                 {% endfor %}
             {% endfor %} 
             #}
-            {{ dump(data) }}
-            {{ dump(base) }}
-            {{ dump(url_audio) }}
+
+             
+            <div id="radio1">
+                <img src="{{logo}}"></img>
+              <audio controls preload="auto">
+                 <source src="{{url_audio}}">
+              </audio>
+            </div>
+
+
+         
           
         
     </div>
