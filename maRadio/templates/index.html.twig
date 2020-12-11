@@ -11,12 +11,17 @@
 
             <div id="radioAlea">
                 <h1>{{name}}</h1>
+                {% if logo is defined %}
                 <img id="radioLogoAlea"src="{{logo}}"></img>
-              <audio id="radioAudioAlea" controls preload="auto">
-                 <source src="{{url_audio}}">
-              </audio>
+                {% endif %}
+               {% if url_audio is defined %}
+                <audio id="radioAudioAlea" controls preload="auto">
+                    <source src="{{url_audio}}">
+                </audio>
+               {% endif %}
+             
             </div>
-
+       
     </div>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> 
     <script src="{{ asset('js/shoutcast_api.js' )}}"> </script>
