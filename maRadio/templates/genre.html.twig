@@ -1,0 +1,27 @@
+{% extends "base.html.twig" %}
+{% block stylesheets %}
+    <link href="{{ asset('css/genre.css') }}" rel="stylesheet"/>     
+{% endblock %}
+
+
+{% block content %}
+        
+    <div id="radioGenre">
+        <h1>{{nameGenre}}</h1>
+        {% if logo is defined %}
+            <img id="radioLogoGenre"src="{{logoGenre}}"></img>
+        {% endif %}
+    {% if url_audioGenre is defined %}
+        <audio id="radioAudioGenre" controls preload="auto">
+            <source src="{{url_audioGenre}}">
+        </audio>
+    {% endif %}
+        
+    </div>
+           <div>
+             
+           </div>
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> 
+    <script src="{{ asset('js/shoutcast_api.js' )}}"> </script>
+{% endblock %}
