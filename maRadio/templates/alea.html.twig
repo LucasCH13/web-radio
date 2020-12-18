@@ -1,0 +1,26 @@
+{% extends "base.html.twig" %}
+{% block stylesheets %}
+    <link href="{{ asset('css/alea.css') }}" rel="stylesheet"/>     
+{% endblock %}
+{% block content %}
+    
+    
+    <div id="api-content-result">
+
+            <div id="radioAlea">
+                <h1>{{name}}</h1>
+                {% if logo is defined %}
+                <img id="radioLogoAlea"src="{{logo}}"></img>
+                {% endif %}
+               {% if url_audio is defined %}
+                <audio id="radioAudioAlea" controls preload="auto">
+                    <source src="{{url_audio}}">
+                </audio>
+               {% endif %}
+             
+            </div>
+         
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> 
+    <script src="{{ asset('js/shoutcast_api.js' )}}"> </script>
+{% endblock %}

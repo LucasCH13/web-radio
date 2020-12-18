@@ -1,0 +1,15 @@
+#content {
+    text-align: center;
+    margin-top: 10px;
+}
+#api-content-result {
+    height: 100vh;
+}
+
+#result {
+    height: 100vh;
+}
+#radioLogoAlea {
+    max-width: 30%;
+    max-height: 30%;
+}

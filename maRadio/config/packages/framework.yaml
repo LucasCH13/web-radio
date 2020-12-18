@@ -15,3 +15,7 @@ framework:
     #fragments: true
     php_errors:
         log: true
+    
+    http_client:
+        scoped_clients:
+            base_uri: 'http://api.shoutcast.com/station/randomstations?k=j99MYuH7ghxGwq5p&f=xml'

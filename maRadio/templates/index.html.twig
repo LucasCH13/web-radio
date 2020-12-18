@@ -5,24 +5,22 @@
 {% block content %}
     
     <h1>Bienvenue sur maRadio</h1>
-    <p> Vous pouvez accéder directement aux playlists ajoutées par l'administrateur</p>
-    
-    <div id="api-content-result">
-
-            <div id="radioAlea">
-                <h1>{{name}}</h1>
-                {% if logo is defined %}
-                <img id="radioLogoAlea"src="{{logo}}"></img>
-                {% endif %}
-               {% if url_audio is defined %}
-                <audio id="radioAudioAlea" controls preload="auto">
-                    <source src="{{url_audio}}">
-                </audio>
-               {% endif %}
-             
-            </div>
-       
+   
+    <div id="accesRadioAlea">
+        <form class="form-group" id="form1" action="{{path('aleatoire')}}" method="POST">
+            <p> Accédez à une radio aléatoire </p>
+            <button type="button" class="btn btn-primary" name="submit" >Cliquez ici </button>
+            
+        </form>
     </div>
+
+    <div id="accesRadioGenre">
+        <form action="{{path('genre_redir')}}">
+            <p> Accédez à une radio </p>
+            <button  type="button" class="btn btn-primary" name="submit" >Cliquez ici </button>
+        </form>
+    </div>
+    
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> 
     <script src="{{ asset('js/shoutcast_api.js' )}}"> </script>
 {% endblock %}

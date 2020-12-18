@@ -1,7 +1,12 @@
 #index:
-#    path: /
+#   path: /
 #    controller: App\Controller\DefaultController::index
 
-ajouter_genre:
+admin:
         path: /administration
-        controller: App\Controller\AdminController
+        controller: App\Controller\AdminController::index_admin
+genre:
+        path: /genre
+        controller: App\Controller\AdminController::shoutcastAPI_byGenre
+
+

@@ -8,9 +8,9 @@
         
     <div id="radioGenre">
         <h1>{{nameGenre}}</h1>
-        {% if logo is defined %}
+        
             <img id="radioLogoGenre"src="{{logoGenre}}"></img>
-        {% endif %}
+       
     {% if url_audioGenre is defined %}
         <audio id="radioAudioGenre" controls preload="auto">
             <source src="{{url_audioGenre}}">

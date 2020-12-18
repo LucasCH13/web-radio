@@ -7,19 +7,25 @@
     height: 100vh;
 }
 
-.form-group {
-    
-    width: 25%;
-    margin-left: 50px;
-    margin-bottom: 0px;
-    display: inline-block;
-    
-}
-.genre-group {
-        width: 40% ;
+.btn {
+    float: right;
+    margin-top: 10px;
+        
 }
 
-.btn-primary  {
-    position: relative;
-    margin-bottom: 3px;
+.form-group {
+
+    margin-bottom: 0px;
+    display: inline-block;
+    box-sizing:content-box;
+    width: 25%;
 }
+.genre-group {
+        width: 100% ;
+       align-items: center;
+}
+
+#text-admin {
+    text-align: center;
+}
+

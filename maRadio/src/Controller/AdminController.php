@@ -6,6 +6,7 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpClient\HttpClient;
+use Symfony\Contracts\HttpClient\Exception\TransportExceptionInterface;
 
 class AdminController extends AbstractController  {
     
@@ -18,16 +19,18 @@ class AdminController extends AbstractController  {
         ]);
         
     }
+    
     /**
-     * @Route("/")
+     * @Route("/aleatoire", name="aleatoire")
      * Affiche une radio aléatoire 
      * 
      */
+    
     public function shoutcastAPI_random(): Response {
                 $httpClient = HttpClient::create();
 
                     //requête vers l'api
-                   
+                   try {
                         $response = $httpClient->request('GET',  'http://api.shoutcast.com/station/randomstations?k=j99MYuH7ghxGwq5p&f=json&mt=audio/mpeg&br=128&limit=1', [
                         
                         ]); 
@@ -48,9 +51,14 @@ class AdminController extends AbstractController  {
                              $lines =  file_get_contents("http://yp.shoutcast.com/".$base."?id=".$id. "");
                              $lien_audio = preg_split("/[\s,]+/", $lines);
                              $lien_audioValid = str_replace("File1=", "", $lien_audio);
-                             
+                               
+
+                        }
+                        catch (TransportExceptionInterface $e) {
+                            $e->getMessage();
+                        }
                   return new Response(
-                            $this->renderView('index.html.twig',  [
+                            $this->renderView('alea.html.twig',  [
                                 'url_audio' => $lien_audioValid[2],
                                 'logo' => $logo,
                                 'name' => $name,
@@ -63,9 +71,13 @@ class AdminController extends AbstractController  {
      * Affiche sur la page /genre une station basée sur le genre sélectionné
      */
     public function shoutcastAPI_byGenre(): Response {
-        $genre = $_POST['genreName'];
+        
+       
+          $genre = $_POST['genreName'];
+            //$genre = $_SESSION['genreName'] = $_POST;
+        
         $httpClient = HttpClient::create();
-
+        try {
         //requête avec paramètre query prenant en compte le genre choisis
           $response = $httpClient->request('GET',  'http://api.shoutcast.com/station/randomstations?k=j99MYuH7ghxGwq5p&f=json&mt=audio/mpeg&br=128&genre=&limit=1', [
                         'query' => [
@@ -87,7 +99,10 @@ class AdminController extends AbstractController  {
                              $lines =  file_get_contents("http://yp.shoutcast.com/".$base."?id=".$id. "");
                              $lien_audio = preg_split("/[\s,]+/", $lines);
                              $lien_audioValid = str_replace("File1=", "", $lien_audio);
-
+                    }
+                    catch (TransportExceptionInterface $e) {
+                        $e->getMessage();
+                    }
           return new Response(
               $this->renderView('genre.html.twig', [
                   'url_audioGenre' => $lien_audioValid[2],
