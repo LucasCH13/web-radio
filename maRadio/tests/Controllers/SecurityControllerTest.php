@@ -12,7 +12,7 @@ class SecurityControllerTest extends WebTestCase {
     const PASS_ERROR='octane';
 
     const LOGIN='adminRadio';
-    const PASS='administrateurRAdio';
+    const PASS='';
     const PASS_CRYPT='$argon2id$v=19$m=65536,t=4,p=1$OVllOHJVa1FSdEdRczVKcQ$dp903WRg+rphnYw6HXVAo5ygeDHe+MkFgvXqslwhbZo';
 
     const ID_SUBMIT='_submit';
